@@ -1,7 +1,7 @@
 //
 //  String.swift
-//  SwiftASCII • https://github.com/orchetect/SwiftASCII
-//  © 2021-2024 Steffan Andrews • Licensed under MIT License
+//  swift-ascii • https://github.com/orchetect/swift-ascii
+//  © 2021-2025 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation
@@ -46,11 +46,11 @@ extension StringProtocol {
     /// will be substituted.
     @available(OSX 10.11, iOS 9.0, *)
     public var asciiStringLossy: ASCIIString {
-#if canImport(Darwin)
+        #if canImport(Darwin)
         let this = self
-#else
+        #else
         let this = String(self) as NSString
-#endif
+        #endif
         let transformed = this.applyingTransform(
             StringTransform("Latin-ASCII"),
             reverse: false

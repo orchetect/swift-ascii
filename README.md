@@ -1,8 +1,8 @@
-# SwiftASCII
+# swift-ascii
 
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Forchetect%2FSwiftASCII%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/orchetect/SwiftASCII) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Forchetect%2FSwiftASCII%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/orchetect/SwiftASCII) [![License: MIT](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](https://github.com/orchetect/SwiftASCII/blob/main/LICENSE)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Forchetect%2Fswift-ascii%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/orchetect/swift-ascii) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Forchetect%2FSwiftASCII%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/orchetect/swift-ascii) [![License: MIT](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](https://github.com/orchetect/swift-ascii/blob/main/LICENSE)
 
-`ASCIIString` and `ASCIICharacter` types for Swift offering validation and lossy conversion from `String`.
+Introduces `ASCIIString` and `ASCIICharacter` types for Swift offering validation and lossy conversion from `String`.
 
 Complete unit test coverage.
 
@@ -12,14 +12,19 @@ Complete unit test coverage.
 
    - In an Xcode app project or framework add the package dependency to your target using this URL:
 
-     `https://github.com/orchetect/SwiftASCII`
+     `https://github.com/orchetect/swift-ascii`
      
    - In a Swift Package, add it to the Package.swift dependencies:
    
      ```swift
-     .package(url: "https://github.com/orchetect/SwiftASCII", from: "1.1.5")
+     .package(url: "https://github.com/orchetect/swift-ascii", from: "1.3.0")
      ```
    
+   - Then add it to the target(s) that will use it:
+
+     ```swift
+     .product(name: "SwiftASCII", package: "swift-ascii")
+     ```
 2. Import the library:
 
    ```swift
@@ -91,15 +96,19 @@ Coded by a bunch of 🐹 hamsters in a trenchcoat that calls itself [@orchetect]
 
 ## License
 
-Licensed under the MIT license. See [LICENSE](https://github.com/orchetect/SwiftASCII/blob/master/LICENSE) for details.
+Licensed under the MIT license. See [LICENSE](https://github.com/orchetect/swift-ascii/blob/master/LICENSE) for details.
 
 ## Community & Support
 
 Please do not email maintainers for technical support. Several options are available for issues and questions:
 
-- Questions and feature ideas can be posted to [Discussions](https://github.com/orchetect/SwiftASCII/discussions).
-- If an issue is a verifiable bug with reproducible steps it may be posted in [Issues](https://github.com/orchetect/SwiftASCII/issues).
+- Questions and feature ideas can be posted to [Discussions](https://github.com/orchetect/swift-ascii/discussions).
+- If an issue is a verifiable bug with reproducible steps it may be posted in [Issues](https://github.com/orchetect/swift-ascii/issues).
 
 ## Contributions
 
-Contributions are welcome. Posting in [Discussions](https://github.com/orchetect/SwiftASCII/discussions) first prior to new submitting PRs for features or modifications is encouraged.
+Contributions are welcome. Posting in [Discussions](https://github.com/orchetect/swift-ascii/discussions) first prior to new submitting PRs for features or modifications is encouraged.
+
+## Legacy
+
+This repository was formerly known as SwiftASCII.

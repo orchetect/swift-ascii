@@ -1,7 +1,7 @@
 //
 //  ASCIICharacter.swift
-//  SwiftASCII • https://github.com/orchetect/SwiftASCII
-//  © 2021-2024 Steffan Andrews • Licensed under MIT License
+//  swift-ascii • https://github.com/orchetect/swift-ascii
+//  © 2021-2025 Steffan Andrews • Licensed under MIT License
 //
 
 import Foundation

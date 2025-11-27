@@ -4,22 +4,13 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftASCII",
+    name: "swift-ascii",
     platforms: [.macOS(.v10_11), .iOS(.v9), .tvOS(.v9), .watchOS(.v2)],
     products: [
-        .library(
-            name: "SwiftASCII",
-            targets: ["SwiftASCII"]
-        )
+        .library(name: "SwiftASCII", targets: ["SwiftASCII"])
     ],
     targets: [
-        .target(
-            name: "SwiftASCII",
-            dependencies: []
-        ),
-        .testTarget(
-            name: "SwiftASCIITests",
-            dependencies: ["SwiftASCII"]
-        )
+        .target(name: "SwiftASCII"),
+        .testTarget(name: "SwiftASCIITests", dependencies: ["SwiftASCII"])
     ]
 )

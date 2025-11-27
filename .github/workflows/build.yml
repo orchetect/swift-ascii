@@ -25,7 +25,7 @@ on:
     - cron: '50 11 * * *'   # once a day @ 11:50am UTC (4:50am PST)
 
 env:
-  SCHEME: "SwiftASCII-CI"
+  SCHEME: "swift-ascii"
 
 jobs:
   macOS:
