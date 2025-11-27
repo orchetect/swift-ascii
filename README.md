@@ -6,32 +6,32 @@ Introduces `ASCIIString` and `ASCIICharacter` types for Swift offering validatio
 
 Complete unit test coverage.
 
-## Getting Started
+## Installation
 
-1. SwiftASCII is available as a Swift Package that can be added as a dependency in your app or package.
+### Swift Package Manager (SPM)
 
-   - In an Xcode app project or framework add the package dependency to your target using this URL:
+To add this package to an Xcode app project, use:
 
-     `https://github.com/orchetect/swift-ascii`
-     
-   - In a Swift Package, add it to the Package.swift dependencies:
-   
-     ```swift
-     .package(url: "https://github.com/orchetect/swift-ascii", from: "1.3.0")
-     ```
-   
-   - Then add it to the target(s) that will use it:
+ `https://github.com/orchetect/swift-ascii` as the URL.
 
-     ```swift
-     .product(name: "SwiftASCII", package: "swift-ascii")
-     ```
-2. Import the library:
+To add this package to a Swift package, add the dependency to your package and target in Package.swift:
 
-   ```swift
-   import SwiftASCII
-   ```
+```swift
+let package = Package(
+    dependencies: [
+        .package(url: "https://github.com/orchetect/swift-ascii", from: "1.3.0")
+    ],
+    targets: [
+        .target(
+            dependencies: [
+                .product(name: "SwiftASCII", package: "swift-ascii")
+            ]
+        )
+    ]
+)
+```
 
-### ASCIIString
+## ASCIIString
 
 ```swift
 // failable init
