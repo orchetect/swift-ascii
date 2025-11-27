@@ -1,5 +1,5 @@
 //
-//  String.swift
+//  String Extensions.swift
 //  swift-ascii • https://github.com/orchetect/swift-ascii
 //  © 2021-2025 Steffan Andrews • Licensed under MIT License
 //

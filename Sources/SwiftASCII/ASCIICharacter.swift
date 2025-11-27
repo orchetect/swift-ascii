@@ -6,11 +6,11 @@
 
 import Foundation
 
-/// ASCII Character:
 /// A type containing a `Character` instance that is guaranteed to conform to ASCII encoding.
-/// Offers a validating `exactly: Character` failable initializer and a `_ lossy: Character`
+/// Offers a validating `init?(exactly: Character)` failable initializer and a `init(_ lossy: Character)`
 /// conversion initializer.
-public struct ASCIICharacter: Hashable {
+nonisolated
+public struct ASCIICharacter {
     /// The ASCII character returned as a `Character`
     public let characterValue: Character
     
@@ -166,17 +166,17 @@ extension ASCIICharacter: Equatable {
     }
 }
 
+extension ASCIICharacter: Hashable { }
+
 extension ASCIICharacter: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let string = try container.decode(String.self)
         guard let newInstance = Self(exactly: string) else {
-            throw DecodingError.dataCorrupted(
-                .init(
-                    codingPath: container.codingPath,
-                    debugDescription: "Value was not valid ASCII character number."
-                )
-            )
+            throw DecodingError.dataCorrupted(.init(
+                codingPath: container.codingPath,
+                debugDescription: "Encoded value was not a valid ASCII character number."
+            ))
         }
         self = newInstance
     }
@@ -189,6 +189,8 @@ extension ASCIICharacter: Codable {
 }
 
 extension ASCIICharacter: Sendable { }
+
+// MARK: - Operators
 
 extension ASCIICharacter {
     public static func + (lhs: ASCIICharacter, rhs: ASCIICharacter) -> ASCIIString {
@@ -235,6 +237,8 @@ extension ASCIICharacter {
         Self(value)
     }
 }
+
+// MARK: - Sequence Methods
 
 extension Sequence where Element == ASCIICharacter {
     /// Returns a new string by concatenating the elements of the sequence.

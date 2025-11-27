@@ -6,11 +6,11 @@
 
 import Foundation
 
-/// ASCII String:
 /// A type containing a `String` instance that is guaranteed to conform to ASCII encoding.
-/// Offers a validating `exactly: String` failable initializer and a `_ lossy: String` conversion
-/// initializer.
-public struct ASCIIString: Hashable {
+/// Offers a validating `init?(exactly: String)` failable initializer and a `init(_ lossy: String)`
+/// conversion initializer.
+nonisolated
+public struct ASCIIString {
     /// The ASCII string returned as a `String`
     public let stringValue: String
     
@@ -129,17 +129,17 @@ extension ASCIIString: Equatable {
     }
 }
 
+extension ASCIIString: Hashable { }
+
 extension ASCIIString: Codable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let stringValue = try container.decode(String.self)
         guard let newInstance = Self(exactly: stringValue) else {
-            throw DecodingError.dataCorrupted(
-                .init(
-                    codingPath: container.codingPath,
-                    debugDescription: "Encoded string is not a valid ASCII string."
-                )
-            )
+            throw DecodingError.dataCorrupted(.init(
+                codingPath: container.codingPath,
+                debugDescription: "Encoded string was not a valid ASCII string."
+            ))
         }
         self = newInstance
     }
@@ -151,6 +151,8 @@ extension ASCIIString: Codable {
 }
 
 extension ASCIIString: Sendable { }
+
+// MARK: - Operators
 
 extension ASCIIString {
     public static func + (lhs: ASCIIString, rhs: ASCIIString) -> ASCIIString {
@@ -174,6 +176,8 @@ extension ASCIIString {
         Self(source)
     }
 }
+
+// MARK: - Sequence Methods
 
 extension Sequence where Element == ASCIIString {
     /// Returns a new string by concatenating the elements of the sequence.
